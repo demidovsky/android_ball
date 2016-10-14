@@ -13,6 +13,8 @@ import org.jbox2d.dynamics.BodyType;
 import org.jbox2d.dynamics.FixtureDef;
 import org.jbox2d.dynamics.World;
 
+import static java.lang.Math.round;
+
 /**
  * Created by ddemidovskiy on 11.10.2016.
  */
@@ -20,6 +22,7 @@ import org.jbox2d.dynamics.World;
 public class Physics {
 
     private static final int FPS = 30;
+    private static final int SPEED_MULTIPLIER = 2;
     public static float GRAVITY_SCALE = 100.0f;
 
     // private final BodyDef boxDef;
@@ -197,7 +200,7 @@ public class Physics {
                 context.onBallPositionChange(bBall.getPosition().x, bBall.getPosition().y);
                 try
                 {
-                    Thread.sleep(1000 / FPS);
+                    Thread.sleep(round(1.0f/SPEED_MULTIPLIER * 1000 / FPS));
                 } catch (InterruptedException e)
                 {
                     e.printStackTrace();
